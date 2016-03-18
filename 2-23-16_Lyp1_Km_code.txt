@@ -1,0 +1,28 @@
+setup<-NULL
+setup$code=c("X:/fast/shou_w/shougroup/_Biology_Protocols/Yeast/Km_StarvationToleranceAssay/AnalysisCode/KmAnalysis_v4.0.R")
+setup$wd="X:/fast/shou_w/shougroup/lab_users/Sam/Disomy_14/Km_data_analysis/2-23-16_Lyp1-Whi3_Km"
+setwd(setup$wd)
+
+setup$nutr="Lys"
+setup$n=4
+setup$p=1
+setup$method="maximum"
+setup$prestarve="3hPrestarve"
+setup$colors=c("salmon","red","chartreuse2","chartreuse4","dodgerblue","deeppink1","deeppink3","grey48","black","darkorange","darkorange3")
+
+setup$cellsperwell=3000
+setup$microscope="broadway"
+setup$date="20160223"
+setup$infile="./2-23-16_broad_Lyp1_bioact_results.txt"
+
+# Setup lookup table
+setup$lookup<-read.delim("./2-23-16_Lyp1_Km_lookup.txt")
+setup$lookup
+
+# set desired data range & tiles to exclude
+setup$slices=1:9
+setup$Set2NA<-as.factor(c("D06a","D06b","D06c","D06d","D10c","G03a","G04b","G05b"))
+
+TileScreen=0
+
+source(setup$code,echo=TRUE,local=TRUE)
